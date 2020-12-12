@@ -70,10 +70,6 @@ class Node
         return $branch;
     }
 
-    public function getTreeHtml() {
-        return $this->treeHtml;
-    }
-
     public function getHtmlTree(array $nodes, $parentId = 0){
 
         foreach ($nodes as $node) {

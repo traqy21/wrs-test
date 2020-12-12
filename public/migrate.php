@@ -1,7 +1,7 @@
 <?php
 include ('db.php');
 
-$db = new db(); 
+$db = new db();
 
 $createNodesTable = "
     CREATE TABLE IF NOT EXISTS nodes (
