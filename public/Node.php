@@ -53,7 +53,6 @@ class Node
 
     public function deleteNode($id){
         $sql = "DELETE FROM nodes WHERE id = '{$id}'";
-        var_dump($sql);
         return $this->db->executeWithId($sql);
     }
 
