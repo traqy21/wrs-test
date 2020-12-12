@@ -1,0 +1,37 @@
+version: '3'
+services:
+  api:
+    container_name: wrs_test
+    build: .
+    image: wrstestapp:latest
+    ports:
+      - "80:80"
+    expose:
+      - '80'
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - PHP_OPCACHE_VALIDATE_TIMESTAMPS=1
+    depends_on:
+      - database
+    networks:
+      - wrs
+
+  database:
+    container_name: wrs_db
+    image: mysql:5.7.19
+    restart: always
+    environment:
+      - MYSQL_DATABASE=wrs
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - '3306'
+    expose:
+      - '3306'
+    networks:
+      - wrs
+        
+networks:
+  wrs:
